@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机</title>
+</head>
+<body>
+<p>
+    姓名：{{ name }} <br>
+    年龄：{{ age }}
+    第一个爱好：{{ hobby.0 }}
+    分数：{{score}}
+
+</p>
+
+<h2>
+    {% if age > 18 %}
+        已经成年
+    {% elif age == 18 %}
+        刚好成年
+    {% else %}
+        未成年
+    {% endif %}
+
+</h2>
+
+<h2>
+    {% for one in hobby %}
+        <p>
+        {{ one }}
+        </p>
+    {% endfor %}
+</h2>
+
+<h2>
+    {% for key,v in score.items %}
+        <p>
+        {{ key }}:{{ v }}
+        </p>
+    {% endfor %}
+</h2>
+
+<h2>
+      {% for one in hobby %}
+          {% if forloop.counter == 1 %}
+            <p>
+            {{ one }}
+            </p>
+          {% endif %}
+    {% endfor %}
+</h2>
+
+
+    {% load myfiter %}
+    {{ age | myadd }}
+
+
+</body>
+</html>
